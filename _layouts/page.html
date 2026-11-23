@@ -4,4 +4,14 @@ layout: default
 
 {%- if page.detail_image -%}<img class="detail_header" src="{{ page.detail_image }}">{%- endif -%}
 
-{{ content }}
+<div class="console-window">
+  <div class="console-window-titlebar">
+    <span class="console-window-dot red"></span>
+    <span class="console-window-dot yellow"></span>
+    <span class="console-window-dot green"></span>
+    <span class="console-window-titlebar-text">guest@iMoRTaL-shell:~/{{ page.permalink_name | replace: " ", "-" }}$</span>
+  </div>
+  <div class="console-window-body">
+    {{ content }}
+  </div>
+</div>

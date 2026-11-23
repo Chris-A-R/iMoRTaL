@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   {% include head.html %}
 
   <body class="{{ site.font-size }}">
+
+    <canvas id="matrix-bg"></canvas>
+    <script src="{{ '/assets/js/matrix-bg.js' | relative_url }}" defer></script>
 
     {% include header.html %}
 

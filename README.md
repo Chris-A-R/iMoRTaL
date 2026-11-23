@@ -1,65 +1,50 @@
-<img src="assets/theme_logo.svg" class="detail_header">
+# iMoRTaL
 
-# jekyll-shell-theme
+Source for my personal cybersecurity site: **https://chris-a-r.github.io/iMoRTaL/**
 
-**Jekyll Shell Theme** is a light-weight customizable one-column jekyll theme that gives off:
+I'm Chris, a cyber professional with an M.S. in Information Security. This site is where I document what I learn, build, and break: my background, my certifications, and write-ups on each one.
 
-- Hackery Vibes
-- Shell Nostalgia
-- Code, code and more code
+## What's on the site
 
-See an example of this theme in action on the [theme's official site](https://tareqdandachi.github.io/jekyll-shell-theme).
+| Page | What it covers |
+|---|---|
+| [Home](https://chris-a-r.github.io/iMoRTaL/) | What I'm working on now and my latest write-up |
+| [About Me](https://chris-a-r.github.io/iMoRTaL/about-me) | Background, experience, certifications, and socials |
+| [Certifications](https://chris-a-r.github.io/iMoRTaL/certs/) | Write-ups on HTB CDSA, CompTIA Security+, and CompTIA Network+ |
 
-## Installation
+## Running it locally
 
-### Gem-based method
+The site is built with [Jekyll](https://jekyllrb.com/) 4. With Ruby and Bundler installed:
 
-Add this line to your Jekyll site's `Gemfile`:
-
-```ruby
-gem "jekyll-shell-theme"
+```sh
+BUNDLE_GEMFILE=Gemfile.local bundle install
+BUNDLE_GEMFILE=Gemfile.local bundle exec jekyll serve --livereload
 ```
 
-And add this line to your Jekyll site's `_config.yml`:
+Then open http://127.0.0.1:4000/iMoRTaL/.
+
+## Adding a certification write-up
+
+Each certification is one Markdown file in [`_certs/`](_certs/). Copy an existing one and update its front matter:
 
 ```yaml
-theme: jekyll-shell-theme
+title: "Full certification name"
+issuer: "Who issues it"
+order: 1                 # position in the cert lists
+earned: "2026-09"        # newest one is featured on the home page
+summary: "One or two sentences shown in the home page preview."
+permalink: /certs/Short-Name
+permalink_name: certs/Short-Name
 ```
 
-And then execute:
+It shows up automatically on the certifications page, the About Me page, and (if it's the newest) the home page.
 
-    $ bundle
+## Deployment
 
-Or install it yourself as:
+Every push to `master` builds the site with GitHub Actions ([`.github/workflows/pages.yml`](.github/workflows/pages.yml)) and publishes it to GitHub Pages.
 
-    $ gem install jekyll-shell-theme
+## Credits
 
-### Remote theme method
+Built on [jekyll-shell-theme](https://github.com/itstorque/jekyll-shell-theme) by [Tareq El Dandachi](https://github.com/itstorque), used under the MIT License (see [`LICENSE`](LICENSE)). I've customized the layouts and styles and added the matrix background, boot sequence, and certification write-ups.
 
-Make sure your `Gemfile` contains the `github-pages` gem and **not** the `jekyll-shell-theme` gem.
-
-Then add `remote_theme: "tareqdandachi/jekyll-shell-theme"` to your `_config.yml` file.
-*Remove* any other `theme:` or `remote_theme:` entry.
-
-*For an example of what a config file could look like, look at [example-config.yml](https://github.com/tareqdandachi/jekyll-shell-theme/blob/master/example-config.yml)*
-
-## Usage
-
-TODO: Write usage instructions here. Describe your available layouts, includes, sass and/or assets.
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/tareqdandachi/jekyll-shell-theme. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## Development
-
-Everyone is welcome to fork this repo and modify the code. To set up your environment to develop this theme, run `bundle install`.
-
-To test the theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using the theme. Add pages, documents, data, etc. like normal to test the theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
-
-When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
-To add a custom directory to your theme-gem, please edit the regexp in `jekyll-shell-theme.gemspec` accordingly.
-
-## License
-
-The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The site's written content and photos are my own.

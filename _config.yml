@@ -1,9 +1,8 @@
-title: "jekyll-shell-theme"
-tagline: "A jekyll theme that looks like a shell/terminal"
-description: "This is a preview of jekyll-shell-theme."
-github_username: tareqdandachi
-baseurl: "/jekyll-shell-theme"
-url: "https://tareqdandachi.github.io"
+title: "iMoRTaL"
+tagline: "What I learn, build, and break in IT & cybersecurity"
+description: "Chris's cybersecurity portfolio: experience, certification write-ups, and projects."
+baseurl: "/iMoRTaL"
+url: "https://chris-a-r.github.io"
 
 plugins:
   - jemoji
@@ -17,8 +16,32 @@ highlighter: rouge
 
 header_pages:
   - index.md
-  - read-me.md
-  - preview.md
+  - about-me.md
+  - certs.md
 
 # set the size of the text to 'large' or 'small', default is small
 font-size: small
+
+collections:
+  certs:
+    output: true
+
+defaults:
+  - scope:
+      type: certs
+    values:
+      layout: page
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/100_0106.jpg
+
+exclude:
+  - vendor/
+  - .github/
+  - Gemfile.local
+  - Gemfile.local.lock
+  - README.md
+  - LICENSE
+  - example-config.yml
+  - jekyll-shell-theme.gemspec
